@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: white; border-radius: 8px; padding: 40px; text-align: center; }
+        h2 { color: #16a34a; }
+        .stars { font-size: 24px; color: #fbbf24; margin: 16px 0; }
+        .btn { display: inline-block; background-color: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; }
+        .footer { margin-top: 32px; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 16px; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>🎉 Đơn hàng đã giao thành công!</h2>
+        <p>Xin chào <strong th:text="${customerName}"></strong>,</p>
+        <p>Cảm ơn bạn đã tin tưởng và mua sắm tại <strong>Clothing Store</strong>.</p>
+        <p>Đơn hàng <strong>#<span th:text="${orderCode}"></span></strong> của bạn đã được giao thành công.</p>
+        
+        <div class="stars">
+            ★★★★★
+        </div>
+        
+        <p>Bạn có hài lòng với trải nghiệm mua sắm và sản phẩm của chúng tôi không?<br>
+        Hãy dành chút thời gian để lại đánh giá nhé. Những phản hồi của bạn sẽ giúp chúng tôi không ngừng cải thiện và phục vụ bạn tốt hơn!</p>
+        
+        <a th:href="${reviewUrl}" class="btn">Đánh giá sản phẩm</a>
+
+        <div class="footer">
+            <p>Nếu bạn có bất kỳ thắc mắc nào về đơn hàng, vui lòng liên hệ với chúng tôi.</p>
+            <p>© 2026 Clothing Store. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

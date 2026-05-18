@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lumiere-cream: #F8F3EC;
+  --lumiere-charcoal: #1A1A1A;
+  --lumiere-gray: #8C8178;
+  --lumiere-terracotta: #C4714A;
+  --lumiere-blush: #E8D5C8;
+  --lumiere-gold: #B89A6E;
+}
+
+@layer base {
+  body {
+    @apply bg-lumiere-cream text-lumiere-charcoal antialiased overflow-x-hidden;
+    font-family: 'Jost', sans-serif;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--lumiere-cream);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--lumiere-gray);
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-[11px] tracking-premium uppercase font-medium text-lumiere-gray cursor-pointer transition-colors duration-200 py-1 border-b border-transparent hover:text-lumiere-charcoal hover:border-lumiere-charcoal;
+  }
+
+  .nav-link.active {
+    @apply text-lumiere-charcoal border-lumiere-charcoal;
+  }
+
+  .btn-primary {
+    @apply inline-block bg-lumiere-terracotta text-white text-[11px] tracking-premium uppercase font-medium px-9 py-3.5 cursor-pointer transition-all duration-300 border border-lumiere-terracotta hover:bg-transparent hover:text-lumiere-terracotta;
+  }
+
+  .btn-outline {
+    @apply inline-block bg-transparent text-lumiere-cream text-[11px] tracking-premium uppercase font-medium px-9 py-3.5 cursor-pointer transition-all duration-300 border border-white/40 hover:border-lumiere-cream hover:bg-lumiere-cream/10;
+  }
+
+  .btn-dark {
+    @apply inline-block bg-lumiere-charcoal text-white text-[11px] tracking-premium uppercase font-medium px-9 py-3.5 cursor-pointer transition-all duration-300 border border-lumiere-charcoal hover:bg-transparent hover:text-lumiere-charcoal;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+}
